@@ -1,188 +1,73 @@
-<p>Clarusway<img align="right"
-  src="https://secure.meetupstatic.com/photos/event/3/1/b/9/600_488352729.jpeg"  width="15px"></p>
+![Animation](https://user-images.githubusercontent.com/82046540/163473024-68086f92-1e22-49ad-8170-dde4821be748.gif)
 
-# Project-005 : Movie App (RC-05)
 
-## Description
+# Getting Started with Create React App
 
-Project aims to create a Movie App.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Problem Statement
+## Available Scripts
 
-- We are adding a new project to our portfolios. So you and your colleagues have started to work on the project.
+In the project directory, you can run:
 
-## Project Skeleton
+### `npm start`
 
-```
-005 - Movie App (folder)
-|
-|----readme.md         # Given to the students (Definition of the project)
-SOLUTION
-├── public
-│     └── index.html
-├── src
-│    ├── auth
-│    │     └── firebase.js
-│    ├── components
-│    │     ├── MovieCard.js
-│    │     └── Navbar.js
-│    ├── context
-│    │     └── AuthContext.js
-│    ├── pages
-│    │     ├── Login.js
-│    │     ├── Register.js
-│    │     ├── Main.js
-│    │     └── MovieDetail.js
-│    ├── router
-│    │     └── Router.js
-│    ├── App.js
-│    ├── App.css
-│    ├── index.js
-│    └── index.css
-├── package.json
-├── .env
-└── yarn.lock
-```
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-![Project 005 Snapshot](movie-app_structure.png)
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-## Expected Outcome
+### `npm test`
 
-![Project 005 Snapshot](movie-app.gif)
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Objective
+### `npm run build`
 
-Build a Movie App using ReactJS.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### At the end of the project, following topics are to be covered;
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-- HTML
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-- CSS
+### `npm run eject`
 
-- JS
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-- ReactJS
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-### At the end of the project, students will be able to;
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-- improve coding skills within HTML & CSS & JS & ReactJS.
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-- use git commands (push, pull, commit, add etc.) and Github as Version Control System.
+## Learn More
 
-## Steps to Solution
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-- Step 1 : Create React App using `npx create-react-app movie-app`
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-- Step 2 : Signup `https://firebase.google.com/` and create new app in firebase.
+### Code Splitting
 
-![Project 005 Snapshot](firebase-create-app.gif)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-- Step 3 : Use `https://firebase.google.com/docs/auth/web/start` and create `Authentication` operations.
-  - Add the Firebase Authentication JS codes in your `firebase.js` file and initialize Firebase Authentication:
+### Analyzing the Bundle Size
 
-```jsx
-import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-// TODO: Replace the following with your app's Firebase project configuration at project settings part
-// See: https://firebase.google.com/docs/web/learn-more#config-object
-const firebaseConfig = {
-  // ...
-};
+### Making a Progressive Web App
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-// Initialize Firebase Authentication and get a reference to the service
-const auth = getAuth(app);
-```
+### Advanced Configuration
 
-- Use this method to `Sign up new users` :
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-```jsx
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+### Deployment
 
-createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in
-    const user = userCredential.user;
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-```
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-- Use this method to `Sign in existing users` :
+### `npm run build` fails to minify
 
-```jsx
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-
-signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in
-    const user = userCredential.user;
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-```
-
-- Use this method to `Set an authentication state observer and get user data` :
-
-```jsx
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
-
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-  } else {
-    // User is signed out
-  }
-});
-```
-
-- Use this method to `Authenticate Using Google with Popup` :
-
-```jsx
-import { GoogleAuthProvider } from 'firebase/auth';
-
-const provider = new GoogleAuthProvider();
-
-signInWithPopup(auth, provider)
-  .then((result) => {
-    // The signed-in user info.
-    const user = result.user;
-  })
-  .catch((error) => {
-    // Handle Errors here.
-    console.log(error);
-  });
-```
-
-- Use this method to `Sign Out` :
-
-```jsx
-import { getAuth, signOut } from 'firebase/auth';
-
-signOut(auth)
-  .then(() => {
-    // Sign-out successful.
-  })
-  .catch((error) => {
-    // An error happened.
-  });
-```
-
-- Step 4 : Signup `https://www.themoviedb.org/documentation/api` and get API key for getting data from `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`, for searching movies `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=` and for movie details `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`.
-
-- Step 5: You can use css frameworks like Bootstrap, Semantic UI, Material UI.
-
-- Step 6: Add project gif to your project and README.md file.
-
-## Notes
-
-- You can add additional functionalities to your app.
-
-**<p align="center">&#9786; Happy Coding &#9997;</p>**
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
